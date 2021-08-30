@@ -166,6 +166,11 @@ public class ResponseCacheImpl implements ResponseCache {
         }
     }
 
+    /**
+     * 其中一个定时任务将readWrite 和 readOnly数据进行对比，如果两个数据不一致，就将readWrite数据放到
+     * readOnly中来，一切以readWrite为准
+     * @return
+     */
     private TimerTask getCacheUpdateTask() {
         return new TimerTask() {
             @Override
